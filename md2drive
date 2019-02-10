@@ -7,7 +7,7 @@ if [ "$#" -ne 1 ]; then
 fi
 FOLDER_ID=${1}
 
-find ./ -iname "*.md" -type f -exec sh -c 'pandoc "${0}" -o "${0%.md}.docx"' {} \;
-find ./ -iname "*.md" -type f -exec sh -c 'rm ${0}' {} \;
+find ./ -iname "*.md" -type f -exec sh -c 'pandoc "${0}" -s --pdf-engine=wkhtmltopdf -o "${0%.md}.pdf"' {} \;
+find ./ -type f -not -name "*.pdf" -exec sh -c 'rm ${0}' {} \;
 
 gdrive --service-account credentials.json sync upload ./ ${FOLDER_ID}

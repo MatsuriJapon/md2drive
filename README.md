@@ -1,4 +1,4 @@
-A small convenience docker image for converting Markdown files to docx and syncing with a Google Drive folder for use in Matsuri Japon projects.
+A small convenience docker image for converting Markdown files to PDF and syncing with a Google Drive folder for use in Matsuri Japon projects.
 
 # Typical usage
 Use this docker file in a CI config file and use the tools included in your build steps. A service account `credentials.json` file is needed to sync with Google Drive.
@@ -20,3 +20,6 @@ jobs:
     - run: echo ${GOOGLE_CREDS} | base64 --decode > /home/.gdrive/credentials.json
     - run: md2drive ${TARGET_FOLDER_ID}
 ```
+
+# Limitations
+Due to limitations with `gdrive`, subfolders are not supported.
