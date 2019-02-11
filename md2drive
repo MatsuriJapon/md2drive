@@ -9,5 +9,6 @@ FOLDER_ID=${1}
 
 find ./ -iname "*.md" -type f -exec sh -c 'pandoc "${0}" -s --pdf-engine=wkhtmltopdf -o "${0%.md}.pdf"' {} \;
 find ./ -type f -not -name "*.pdf" -exec sh -c 'rm ${0}' {} \;
+find ./ -iregex "./\.\w*" -regextype sed -exec sh -c 'rm -rf ${0}' {} \; || true
 
 gdrive --service-account credentials.json sync upload ./ ${FOLDER_ID}

@@ -22,4 +22,4 @@ jobs:
 ```
 
 # Limitations
-Due to limitations with `gdrive`, subfolders are not supported.
+Due to limitations with `gdrive`, subfolders may not be supported.
