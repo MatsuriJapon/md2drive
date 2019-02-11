@@ -10,14 +10,14 @@ version: 2
 jobs:
   build:
     docker:
-    - image: matsuri-japon/md2drive:latest
+    - image: matsurijapon/md2drive:latest
     working_directory: /work
     branches:
       only:
         - master
     steps:
     - checkout
-    - run: echo ${GOOGLE_CREDS} | base64 --decode > /home/.gdrive/credentials.json
+    - run: echo ${GOOGLE_CREDS} | base64 --decode > /root/.gdrive/credentials.json
     - run: md2drive ${TARGET_FOLDER_ID}
 ```
 

@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 
+COPY md2drive /usr/bin
+
 RUN apt update \
     && apt install --no-install-recommends -y wget software-properties-common git-core \
     && add-apt-repository -y ppa:longsleep/golang-backports \
@@ -16,8 +18,7 @@ RUN apt update \
     && apt purge -y --auto-remove software-properties-common golang-go git-core git wget \
     && rm -rf /var/lib/apt/lists/* \
     && rm *.deb \
-    && mkdir -p /root/.gdrive
-
-COPY md2drive /usr/bin
+    && mkdir -p /root/.gdrive \
+    && chmod +x /usr/bin/md2drive
 
 CMD ["/bin/bash"]
