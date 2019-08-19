@@ -9,7 +9,7 @@ RUN apt update \
     && apt --no-install-recommends -y install golang-go \
     && go get github.com/petrpulc/gdrive \
     && mv /root/go/bin/gdrive /usr/bin \
-    && wget https://github.com/jgm/pandoc/releases/download/2.6/pandoc-2.6-1-amd64.deb \
+    && wget https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-1-amd64.deb \
     && wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb \
     && apt install -y fontconfig libfreetype6 libjpeg-turbo8 libpng16-16 libx11-6 libxcb1 libxext6 libxrender1 xfonts-75dpi xfonts-base fonts-takao \
     && fc-cache -f -v \
