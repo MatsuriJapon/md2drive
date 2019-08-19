@@ -13,8 +13,8 @@ RUN apt update \
     && wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb \
     && apt install -y fontconfig libfreetype6 libjpeg-turbo8 libpng16-16 libx11-6 libxcb1 libxext6 libxrender1 xfonts-75dpi xfonts-base fonts-takao \
     && fc-cache -f -v \
-    && dpkg -i pandoc-2.6-1-amd64.deb \
-    && dpkg -i wkhtmltox_0.12.5-1.bionic_amd64.deb \
+    && dpkg -i pandoc-*.deb \
+    && dpkg -i wkhtmltox_*.deb \
     && apt remove -y --auto-remove software-properties-common golang-go git-core git wget \
     && apt purge -y --auto-remove software-properties-common golang-go git-core git wget \
     && rm -rf /var/lib/apt/lists/* \
