@@ -14,7 +14,7 @@ workflows:
           tag: '${CIRCLE_TAG//v}, latest'
           use-remote-docker: true
           filters:
-            tags:
-              only: /^v[0-9]+(\.[0-9]+)*
             branches:
               ignore: /.*/
+            tags:
+              only: /^v[0-9]+(\.[0-9]+)*$/
