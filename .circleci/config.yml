@@ -5,12 +5,13 @@ orbs:
 workflows:
   publish:
     jobs:
-      - docker/hadolint
+      - docker/hadolint:
+          ignore-rules: 'DL3008'
       - docker/publish:
           image: matsuri/$CIRCLE_PROJECT_REPONAME
           registry: quay.io
           lint-dockerfile: true
-          tag: ${CIRCLE_TAG//v}
+          tag: '${CIRCLE_TAG//v}, latest'
           use-remote-docker: true
           filters:
             tags:
