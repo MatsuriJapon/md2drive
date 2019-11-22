@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/MatsuriJapon/md2drive.svg?style=svg)](https://circleci.com/gh/MatsuriJapon/md2drive)
+
 A small convenience docker image for converting Markdown files to PDF and syncing with a Google Drive folder for use in Matsuri Japon projects.
 
 # Typical usage
