@@ -12,7 +12,6 @@ workflows:
           registry: quay.io
           lint-dockerfile: true
           tag: '${CIRCLE_TAG//v}, latest'
-          use-remote-docker: true
           filters:
             branches:
               ignore: /.*/
