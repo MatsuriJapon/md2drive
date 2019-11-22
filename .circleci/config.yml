@@ -1,0 +1,19 @@
+version: 2.1
+orbs:
+  docker: circleci/docker@0.5.18
+
+workflows:
+  publish:
+    jobs:
+      - docker/hadolint
+      - docker/publish:
+          image: matsuri/$CIRCLE_PROJECT_REPONAME
+          registry: quay.io
+          lint-dockerfile: true
+          tag: ${CIRCLE_TAG//v}
+          use-remote-docker: true
+          filters:
+            tags:
+              only: /^v[0-9]+(\.[0-9]+)*
+            branches:
+              ignore: /.*/
